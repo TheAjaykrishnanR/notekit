@@ -1,9 +1,6 @@
 name: MinGW Windows Nightly Build
 
-on:
-  push:
-    branches:
-      - master
+on: [workflow_dispatch]
 
 jobs:
   mingw:
@@ -84,7 +81,7 @@ jobs:
           zip -9r notekit_mingw.zip notekit/ LICENSE
           popd
       - name: Upload nightly Windows build 📤
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: NoteKit - Windows x86_64 nightly build
           path: dist/notekit_mingw.zip
